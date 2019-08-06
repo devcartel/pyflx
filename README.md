@@ -1,7 +1,7 @@
 # PyFLX
 [![version](https://img.shields.io/pypi/v/pyflx.svg)](https://pypi.org/project/pyflx)
 [![pyversion](https://img.shields.io/pypi/pyversions/pyflx.svg)](#)
-[![platform](https://img.shields.io/badge/platform-linux|%20win-lightgray.svg)](#platform-availability)
+[![platform](https://img.shields.io/badge/platform-linux|%20win-lightgray.svg)](#)
 [![license](https://img.shields.io/pypi/l/pyflx.svg)](https://github.com/devcartel/pyflx/blob/master/LICENSE.txt)
 [![downloads](https://img.shields.io/pypi/dm/pyflx.svg)](https://pypi.org/project/pyflx)
 [![Sponsor](https://img.shields.io/badge/Sponsor%20PyFLX-%2419.99%2Fmonth-orange.svg?logo=paypal&style=social)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=538VN8VH7S744)
@@ -126,7 +126,7 @@ Process checks requests and callbacks will be triggered.
 __Symproxy.publish(_symbol_, _data_)__  
 _symbol: str_  
 _data: dict_  
-Publishes market data tick update to a SYM server.
+Publishes market data tick update to a SYM server. See [Data Format](#data-format).
 
     >> sp.publish('XAU/USD', {0:1420, 1:1421.5, 512:1000, 513:2000, 1032:'USD', 1541:'U'})
 
@@ -148,9 +148,32 @@ __Symproxy.onSubscribe(_symbol_)__
 _symbol: str_  
 A callback `onSubscribe`, if assigned, is called upon receiving a symbol subscription message from a client.
 
-__Symproxy.onUnsubscribe(_username_, _password_)__  
+__Symproxy.onUnsubscribe(_symbol_)__  
 _symbol: str_  
 A callback `onUnsubscribe`, if assigned, is called upon receiving a symbol unsubscription message from a client.
+
+## Data Format
+| Tag     | Type          | Description                                      
+| --------| ------------- | ------------------------------------------------
+| 0       | float         | Bid                                           
+| 1       | float         | Ask                                           
+| 2       | float         | VWAP                                          
+| 3       | float         | Last traded price                             
+| 8       | float         | Today's high  
+| 9       | float         | Today's low
+| 10      | float         | Today's open
+| 11      | float         | Previous day's close
+| 17      | float         | Today's close
+| 18      | float         | Volume                            
+| 512     | int           | Bid size                                      
+| 513     | int           | Ask size                                      
+| 514     | int           | Trade size
+| 518     | int           | Update time
+| 519     | int           | Last trade time                                   
+| 1024    | str           | Symbol                                        
+| 1032    | str           | Traded currency                               
+| 1541    | str           | Bid tick direction<br/>`U` - up<br/>`D` - down
+| 1545    | str           | Ask tick direction<br/>`U` - up<br/>`D` - down
 
 ## Support
 * Report an issue in [issue tracker](https://github.com/devcartel/pyflx/issues)
