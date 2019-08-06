@@ -1,2 +1,5 @@
-
+/build/
+/dist/
+/pyflx.egg-info/
+*.pyc
 *.so
