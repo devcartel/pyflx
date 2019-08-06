@@ -7,6 +7,10 @@
 
 Provides Python market data API access to FlexTrade SYM. PyFLX has two market data Python classes - **Symlistener** (client) for consuming market data from FlexTrade market data server and **Symproxy** (publisher or feeder) for publising custom tick data to FlexTrade market data server.
 
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/3415706/62541201-85692d80-b883-11e9-826a-05191f845c87.png" alt="application" width="800"/>
+</p>
+
 ## Installation
 Install from [PyPI](https://pypi.org/project/pyflx) using `pip`:
 
