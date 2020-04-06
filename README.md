@@ -179,6 +179,10 @@ A callback `onUnsubscribe`, if assigned, is called upon receiving a symbol unsub
 * Report an issue in [issue tracker](https://github.com/devcartel/pyflx/issues)
 
 ## Changelog
+1.3.0
+* 6 April 2020
+* New: Closes clien connection and rebinds to binding port with `Symproxy.closeClient()`
+
 1.2.0
 * 7 August 2019
 * Support for Python 2.7
