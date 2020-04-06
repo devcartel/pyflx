@@ -35,6 +35,7 @@ class Symproxy : public CSymProxy {
         int getFd();
         int select();
         bool checkSocket();
+        bool closeClient();
         bool dispatch();
         virtual bool OnLogon(const char *szUserName, const char *szPassword);
         virtual void OnSubscribe(const char* szTopic);

@@ -46,6 +46,10 @@ bool Symproxy::checkSocket() {
     return CSymProxy::CheckSocket(readF);
 }
 
+bool Symproxy::closeClient() {
+    return CSymProxy::CloseClient();
+}
+
 bool Symproxy::dispatch() {
     return CSymProxy::Dispatch();
 }
@@ -238,6 +242,7 @@ BOOST_PYTHON_MODULE(pyflx)
         .def("getFd", &Symproxy::getFd)
         .def("select", &Symproxy::select)
         .def("checkSocket", &Symproxy::checkSocket)
+        .def("closeClient", &Symproxy::closeClient)
         .def("dispatch", &Symproxy::dispatch)
         .def("publish", &Symproxy::publish)
         ;
