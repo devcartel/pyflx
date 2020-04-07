@@ -73,7 +73,7 @@ Unsubscribe to market data of the symbol.
 
     >> sl.unsubscribe('XAU/USD')
 
-__Symlistener.subscribeAll()__  
+__Symlistener.unsubscribeAll()__  
 Unsubscribe to market data of all symbols.
 
     >> sl.unsubscribeAll()
@@ -123,6 +123,11 @@ Process checks requests and callbacks will be triggered.
 
     >> sp.checkSocket()
 
+__Symproxy.closeClient()__  
+Closes client connection and rebinds to binding port.
+
+    >> sp.closeClient()
+
 __Symproxy.publish(_symbol_, _data_)__  
 _symbol: str_  
 _data: dict_  
@@ -153,27 +158,30 @@ _symbol: str_
 A callback `onUnsubscribe`, if assigned, is called upon receiving a symbol unsubscription message from a client.
 
 ## Data Format
-| Tag     | Type          | Description                                      
-| --------| ------------- | ------------------------------------------------
-| 0       | float         | Bid                                           
-| 1       | float         | Ask                                           
-| 2       | float         | VWAP                                          
-| 3       | float         | Last traded price                             
-| 8       | float         | Today's high  
-| 9       | float         | Today's low
-| 10      | float         | Today's open
-| 11      | float         | Previous day's close
-| 17      | float         | Today's close
-| 18      | float         | Volume                            
-| 512     | int           | Bid size                                      
-| 513     | int           | Ask size                                      
-| 514     | int           | Trade size
-| 518     | int           | Update time
-| 519     | int           | Last trade time                                   
-| 1024    | str           | Symbol                                        
-| 1032    | str           | Traded currency                               
-| 1541    | str           | Bid tick direction<br/>`U` - up<br/>`D` - down
-| 1545    | str           | Ask tick direction<br/>`U` - up<br/>`D` - down
+| Tag      | Type          | Description                                      
+| ---------| ------------- | ------------------------------------------------
+| 0        | float         | Bid                                           
+| 1        | float         | Ask                                           
+| 2        | float         | VWAP                                          
+| 3        | float         | Last traded price                             
+| 8        | float         | Today's high  
+| 9        | float         | Today's low
+| 10       | float         | Today's open
+| 11       | float         | Previous day's close
+| 17       | float         | Today's close
+| 18       | float         | Volume  
+| 256-511  | float         | custom fields                          
+| 512      | int           | Bid size                                      
+| 513      | int           | Ask size                                      
+| 514      | int           | Trade size
+| 518      | int           | Update time
+| 519      | int           | Last trade time   
+| 768-1023 | int           | custom fields                                 
+| 1024     | str           | Symbol                                        
+| 1032     | str           | Traded currency         
+| 1280-1535| str           | custom fields                      
+| 1541     | str           | Bid tick direction<br/>`U` - up<br/>`D` - down
+| 1545     | str           | Ask tick direction<br/>`U` - up<br/>`D` - down
 
 ## Support
 * Report an issue in [issue tracker](https://github.com/devcartel/pyflx/issues)
