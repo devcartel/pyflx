@@ -29,7 +29,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='pyflx',
-    version='1.3.0',
+    version='2.0.0',
     description='Provides Python market data API access to FlexTrade SYM',
     long_description=long_description,
     long_description_content_type='text/markdown',

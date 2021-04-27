@@ -1,13 +1,13 @@
 VERSION =
 COMPILER = g++-4.4
 DEFINE = -DFOR_UNIX -DFOR_LINUX
-SYMAPI=/flextrade/SymAPI/AS5_64/apinew
+SYMAPI=/devcartel/SymAPI/AS5_64/apinew
 PYTHONLIBDIR=/usr/lib
 PYTHONINCLUDEDIR=/usr/include/python2.7
 PYTHON=python2.7
 PYTHON_TAG=cp27
 #BOOSTPYTHON=boost_python
-BOOSTPYTHON=:/usr/local/boost_1_68_0/stage/lib/libboost_python27.a
+BOOSTPYTHON=:/devcartel/boost_1_68_0/stage/lib/libboost_python27.a
 ARCHTYPE=$(shell uname -m)
 ifeq ($(ARCHTYPE),x86_64)
     COMPILE_BITS=64
@@ -19,7 +19,7 @@ endif
 CXXFLAGS = -Wall -Wno-long-long -pedantic -DLinux -D_REENTRANT -m$(COMPILE_BITS) -lnsl -lpthread -fPIC -std=c++0x
 MODULEFLAGS = -shared
 OUTPUTDIR=./pyflx$(VERSION)
-INCLUDES = -I./ -I$(PYTHONINCLUDEDIR) -I/usr/local/boost_1_68_0 -I$(SYMAPI)/include
+INCLUDES = -I./ -I$(PYTHONINCLUDEDIR) -I/devcartel/boost_1_68_0 -I$(SYMAPI)/include
 LIBDIRS = -L$(PYTHONLIBDIR)
 LIBS = -l$(PYTHON) $(SYMAPI)/lib/LINUX/gcc4.1.2/x64/libflexapi.a
 
