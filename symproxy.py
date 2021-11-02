@@ -27,6 +27,6 @@ while True:
         sp.checkSocket()
         time.sleep(1)
         price = round(round(1023 + random.random(),2),2)
-        sp.publish('XAU/USD', {0:price, 1:price+0.05, 512:1000, 513:2000, 1032:'USD', 1541:'U'})
+        sp.publish('XAU/USD', {0:price, 1:price+0.05, 256:1000.123, 257:2000.456, 1032:'USD', 1541:'U'})
     except KeyboardInterrupt:
         exit(0)
