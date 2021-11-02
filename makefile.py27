@@ -1,5 +1,5 @@
 VERSION =
-COMPILER = g++-4.4
+COMPILER = g++-4.8
 DEFINE = -DFOR_UNIX -DFOR_LINUX
 SYMAPI=/devcartel/SymAPI/AS5_64/apinew
 PYTHONLIBDIR=/usr/lib
